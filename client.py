@@ -1,5 +1,6 @@
 import cv2
 import requests
+import json
 # Open the default camera
 cap = cv2.VideoCapture(0)
 # Loop to continuously read frames and display them in a window
@@ -27,6 +28,11 @@ cv2.imwrite('image.jpeg', frame)
 response = requests.post(url, data=img_encoded.tobytes(), headers=headers)
 # response = requests.get("https://www.google.com")
 # Print the server response
+y = json.loads(response.content)
+if(float(y["conf"])<0.30):
+    print("Engine cannot start")
+else:
+    print("Engine can start")
 print(response.content)
 
 # Save the last captured frame to a file

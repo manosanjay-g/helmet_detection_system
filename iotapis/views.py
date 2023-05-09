@@ -11,7 +11,9 @@ def test(request):
       # print("Working",request.FILES.get("image"))      
       # img = request.FILES.get("image")
       op = open('op.txt',"r")
-      
+      file = open('op.txt','w')
+      file.write("0")
+      file.close()
       with open("file.jpeg", "wb") as f:
          f.write(request.body)
       with open("test.txt", "r") as file:
