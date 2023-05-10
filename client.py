@@ -22,7 +22,7 @@ cv2.destroyAllWindows()
 _, img_encoded = cv2.imencode('.jpeg', frame)
 
 # Send a POST request to the server
-url = 'http://localhost:8080/api/'
+url = 'http://45.90.109.12:8080/api/'
 headers = {'Content-Type': 'image/jpeg'}
 cv2.imwrite('image.jpeg', frame)
 response = requests.post(url, data=img_encoded.tobytes(), headers=headers)
